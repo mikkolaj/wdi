@@ -1,35 +1,33 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-int ciaga(int n);
-int ciagb(int n);
+int a(int n);
+int b(int n);
 
 int main()
 {
-  int n, i=0;
-  while(cin >> n && ciaga(i)==n)
-  {
-    cout << ciagb(i) << endl;
-    i++;
-  }
-  return 0;
+	int n, i=0;
+	while(cin >> n && a(i)==n)
+	{
+		cout << b(i) << endl;
+		i++;
+	}
 }
 
-int ciaga(int n)
+int a(int n)
 {
-  if(n==0)
-    return 0;
-  if(n==1)
-    return 1;
-  else
-    return ciaga(n-1) - ciagb(n-1) * ciaga(n-2);
+	if(n==0)
+		return 0;
+	if(n==1)
+		return 1;
+	else
+		return a(n-1) - b(n-1)*a(n-2);
 }
 
-int ciagb(int n)
+int b(int n)
 {
-  if(n==0)
-    return 2;
-  else
-    return ciagb(n-1) + 2 * ciaga(n-1);
+	if(n==0)
+		return 2;
+	else
+		return b(n-1) + 2*a(n-1);
 }

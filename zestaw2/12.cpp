@@ -6,9 +6,9 @@ int main()
 {
 	int num;
 	cin >> num;
-	while(num>9)
+	while(num>0)
 	{
-		if(num%10<=num/10%10)
+		if(num%10<num/10%10)
 		{
 			cout << "Nie" << endl;
 			return 0;
