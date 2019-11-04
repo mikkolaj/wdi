@@ -16,6 +16,7 @@ int main()
     }
     while(fib2<fib1)
     {
+      cout << "debil" << endl;
       int temp2;
       temp2 = prev2;
       prev2=fib2;
