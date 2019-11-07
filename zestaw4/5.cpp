@@ -5,12 +5,17 @@ using namespace std;
 
 int main()
 {
-  const int max=2;
+  const int max=3;
   int tab[max][max];
-  tab[0][0]=1;
-  tab[0][1]=-99;
-  tab[1][0]=-100;
-  tab[1][1]=-3;
+  tab[2][0]=5;
+  tab[2][1]=2;
+  tab[2][2]=-5;
+  tab[1][0]=6;
+  tab[1][1]=-1;
+  tab[1][2]=-6;
+  tab[0][0]=7;
+  tab[0][1]=-3;
+  tab[0][2]=-7;
 
   int maxk, mink, maxuw, mindw;
   int maxki=-1, minki=-1, maxuwi=-1, mindwi=-1;
