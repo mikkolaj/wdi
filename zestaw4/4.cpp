@@ -12,8 +12,10 @@ int main()
   tab[1][0]=100;
   tab[1][1]=3;
   int sumkmax=0;
-  int sumwmin=tab[0][0];
+  int sumwmin=0;
   int maxk=0, minw=0;
+  for(int i=0; i<max; i++)
+    sumwmin+=tab[0][i];
   for(int i=0; i<max; i++)
   {
     int sumktemp=0, sumwtemp=0;
