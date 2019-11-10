@@ -17,8 +17,8 @@ int main()
   tab[0][1]=-3;
   tab[0][2]=-7;
 
-  int maxk, mink, maxuw, mindw;
-  int maxki=-1, minki=-1, maxuwi=-1, mindwi=-1;
+  int maxk, mink, maxuw=1, mindw=-1;
+  int maxki, minki, maxuwi, mindwi;
   for(int i=0; i<max; i++)
   {
     int sumw=0;
@@ -36,6 +36,8 @@ int main()
       maxuw=sumw;
       maxuwi=i;
     }
+    if(mindw!=-1 && maxuw!=1)
+      break;
   }
   int sumk1=0;
   for(int i=0; i<max; i++)
@@ -64,23 +66,17 @@ int main()
       mink=sumk;
       minki=i;
     }
-    if(sumw>0)
-    {
-      if(sumw<mindw)
+    if(sumw>0 && if(sumw<mindw)
       {
         mindw=sumw;
         mindwi=i;
       }
     }
-    if(sumw<0)
-    {
-      if(sumw>maxuw)
+    if(sumw<0 && sumw>maxuw)
       {
         maxuw=sumw;
         maxuwi=i;
       }
-    }
-  }
   if(1.0*maxk/mindw>1.0*mink/maxuw)
     cout << "Wiersz " << mindwi << " Kolumna " << maxki << endl; 
   else
