@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-const int maxa=12;
+const int maxa=11;
 const int size=31;
 struct punkt {
   int x;
@@ -22,7 +22,8 @@ int licz(bool tab[][size], int y, int x, int dod)
   {
     for(int j=x; j<=x+dod; j++)
     {
-      suma++;
+      if(tab[i][j]==true)
+        suma++;
     }
   }
   return suma;
@@ -40,7 +41,7 @@ bool jest(bool tab[][size])
         {
           if(licz(tab, i, j, dod)==4)
           {
-            cout << dod << " "  << i << " " << j << endl;
+            //cout << dod << " "  << i << " " << j << endl;
             return true;
           }
         }
@@ -65,8 +66,8 @@ int main()
       info.tab[licz].x=kol;
       info.tab[licz].y=wier;
       licz++;
-      cout << licz;
-      cout << info.tab[licz-1].x << ' ' << info.tab[licz-1].y << ' ' << endl;
+      //cout << licz;
+      //cout << info.tab[licz-1].x << ' ' << info.tab[licz-1].y << ' ' << endl;
     }
     kol++;
     if(kol==4)
@@ -81,13 +82,13 @@ int main()
   }
   for(int i=0; i<31; i++)
   {
-      for(int j=0; j<31; j++)
-      {
-        cout << tab[i][j] << " ";
-      }
-      cout << endl;
+    for(int j=0; j<31; j++)
+    {
+      //cout << tab[i][j] << " ";
+    }
+    //cout << endl;
   }
-  cout << jest(tab);
-  
-	return 0;
+  cout << jest(tab) << endl;
+
+  return 0;
 }

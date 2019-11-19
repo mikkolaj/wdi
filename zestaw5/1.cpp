@@ -3,7 +3,7 @@ using namespace std;
 
 struct ulamek 
 {
-  int l;  // ca³kowity
+  int l;  // calkowity
   int m; // N+
 };
 
@@ -23,17 +23,17 @@ void skroc(ulamek &a)
 {
   if(a.l!=0)
   {
-  int lc = abs(a.l);
-  int mc = a.m;
-  while(mc!=lc)
-  {
-    if(lc>mc)
-      lc-=mc;
-    else
-      mc-=lc;
-  }
-  a.l/=mc;
-  a.m/=mc;
+    int lc = abs(a.l);
+    int mc = a.m;
+    while(mc!=lc) //NWW
+    {
+      if(lc>mc)
+        lc-=mc;
+      else
+        mc-=lc;
+    }
+    a.l/=mc;
+    a.m/=mc;
   }
 }
 
@@ -83,6 +83,12 @@ ulamek podaj()
 ulamek potega(ulamek a, int n)
 {
   ulamek ac=a;
+  if(n==0)
+  {
+    a.l=1;
+    a.m=1;
+    return a;
+  }
   while(n>1)
   {
     a=pomnoz(a, ac);
@@ -103,23 +109,23 @@ void wypisz(ulamek a)
 
 int main()
 {
-	ulamek xd, elo;
-	xd.l=1;
-	xd.m=1;
-	elo.l=1;
-	elo.m=1;
-	wypisz(xd);
-	cout << " ";
-	wypisz(elo);
-	cout << endl;
-	wypisz(dodaj(xd, elo));
-	cout << endl;
-	cout << -4/2 << endl;
-	wypisz(potega(elo, 4));
-	cout << endl;
-	elo.l=11;
-	elo.m=22;
-	skroc(elo);
-	wypisz(elo);
-	return 0;
+  ulamek xd, elo;
+  xd.l=1;
+  xd.m=1;
+  elo.l=1;
+  elo.m=1;
+  wypisz(xd);
+  cout << " ";
+  wypisz(elo);
+  cout << endl;
+  wypisz(dodaj(xd, elo));
+  cout << endl;
+  cout << -4/2 << endl;
+  wypisz(potega(elo, 4));
+  cout << endl;
+  elo.l=11;
+  elo.m=22;
+  skroc(elo);
+  wypisz(elo);
+  return 0;
 }

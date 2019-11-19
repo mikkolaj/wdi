@@ -23,17 +23,17 @@ void skroc(ulamek &a)
 {
   if(a.l!=0)
   {
-  int lc = abs(a.l);
-  int mc = a.m;
-  while(mc!=lc)
-  {
-    if(lc>mc)
-      lc-=mc;
-    else
-      mc-=lc;
-  }
-  a.l/=mc;
-  a.m/=mc;
+    int lc = abs(a.l);
+    int mc = a.m;
+    while(mc!=lc)
+    {
+      if(lc>mc)
+        lc-=mc;
+      else
+        mc-=lc;
+    }
+    a.l/=mc;
+    a.m/=mc;
   }
 }
 
@@ -150,5 +150,5 @@ int main()
   cout << "Rownanie 2:" << endl;
   wczytrown(d, e, f);
   rozwiaz(a, b, c, d, e, f);
-	return 0;
+  return 0;
 }

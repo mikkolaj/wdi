@@ -37,5 +37,5 @@ int main()
   heti.t[2].k=1;
   heti.t[2].w=11;
   cout << nieszach(heti);
-	return 0;
+  return 0;
 }
