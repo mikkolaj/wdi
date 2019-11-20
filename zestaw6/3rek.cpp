@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
-const int N=3;
-int dane[N]={1, 2, 5};
+const int N=4;
 
 bool dasie(int tab[], int waga, int start)
 {
@@ -10,7 +9,7 @@ bool dasie(int tab[], int waga, int start)
     cout << tab[start] << endl;
     return true;
   }
-  if(start>N)
+  if(start>=N)
     return false;
   if(dasie(tab, waga-tab[start], start+1) || dasie(tab, waga, start+1) || dasie(tab, waga+tab[start], start+1))
   {
@@ -20,6 +19,7 @@ bool dasie(int tab[], int waga, int start)
 }
 int main()
 {
-  dasie(dane, 6, 0);
+  int dane[N]={1, 5, 10, 15};
+  dasie(dane, 9, 0);
   return 0;
 }
