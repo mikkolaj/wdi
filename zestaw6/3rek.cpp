@@ -2,24 +2,21 @@
 using namespace std;
 const int N=4;
 
-bool dasie(int tab[], int waga, int start)
+void dasie(int tab[], int waga, int start, string lewo, string prawo)
 {
-  if(waga==tab[start])
+  if(start==N)
   {
-    cout << tab[start] << endl;
-    return true;
+    if(waga==0)
+      cout << lewo << endl << prawo << endl << endl;
+    return;
   }
-  if(start>=N)
-    return false;
-  if(dasie(tab, waga-tab[start], start+1) || dasie(tab, waga, start+1) || dasie(tab, waga+tab[start], start+1))
-  {
-    cout << tab[start] << endl;
-    return true;
-  }
+  dasie(tab, waga-tab[start], start+1, lewo+"1", prawo+"0");
+  dasie(tab, waga, start+1, lewo+"0", prawo+"0");
+  dasie(tab, waga+tab[start], start+1, lewo+"0", prawo+"1");
 }
 int main()
 {
   int dane[N]={1, 5, 10, 15};
-  dasie(dane, 9, 0);
+  dasie(dane, 10, 0, "", "");
   return 0;
 }
