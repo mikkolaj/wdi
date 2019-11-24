@@ -30,11 +30,11 @@ bool czypierwsza(int tab[], int start, int koniec)
 
 bool tnij(int tab[], int start)
 {
-  for(int i=2; i+start<=30 && i+start<N; i++)
+  for(int i=start+2; i<=30 && i<N; i++)
   {
-    if(!czypierwsza(tab, start, start+i))
+    if(!czypierwsza(tab, start, i-1))
       continue;
-    else if(start+i==N-1)
+    else if(i==N-1)
       return true;
     if(tnij(tab, start+i))
       return true;
@@ -43,7 +43,7 @@ bool tnij(int tab[], int start)
 }
 int main()
 {
-	int tab[N] = {1, 1, 0, 1, 0, 1};
+	int tab[N] = {1, 1, 0, 1, 0, 0};
 	cout << tnij(tab, 0);
 	return 0;
 }
