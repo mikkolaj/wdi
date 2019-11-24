@@ -19,7 +19,7 @@ int sumuj(int tab[], int start, int sumael, int sumaind, int liczba, int &mina, 
   if(start+1<N)
   {
   sumuj(tab, start+1, sumael+tab[start], sumaind+start, liczba+1, mina, wyn);
-  sumuj(tab, start+1, sumael, sumaind, 1, mina, wyn);
+  sumuj(tab, start+1, sumael, sumaind, liczba, mina, wyn);
   }
   return wyn;
 }
