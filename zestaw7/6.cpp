@@ -30,14 +30,15 @@ bool czypierwsza(int tab[], int start, int koniec)
 
 bool tnij(int tab[], int start)
 {
-  for(int i=start+2; i<=30 && i<N; i++)
+  for(int i=start+2; i<=30 && i<=N; i++)
   {
-    if(!czypierwsza(tab, start, i-1))
-      continue;
-    else if(i==N-1)
-      return true;
-    if(tnij(tab, start+i))
-      return true;
+    if(czypierwsza(tab, start, i-1))
+    {  
+      if(i==N)
+        return true;
+      if(tnij(tab, i))
+        return true;
+    }
   }
   return false;
 }

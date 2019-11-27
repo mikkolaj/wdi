@@ -7,7 +7,7 @@ const int N=8;
 int traverse(int tab[][N], int w, int k, int &mink, int suma, bool trasa[][N], bool trasatemp[][N])
 {
   trasatemp[w][k]=true;
-  if(w==7)
+  if(w==N-1)
   {
     suma+=tab[w][k];
     if(suma<mink)
@@ -18,14 +18,16 @@ int traverse(int tab[][N], int w, int k, int &mink, int suma, bool trasa[][N], b
           trasa[i][j]=trasatemp[i][j];
     }
     trasatemp[w][k]=false;
-    return mink;
   }
+  if(w<7)
+  {
   if(k-1>=0)
     traverse(tab, w+1, k-1, mink, suma+tab[w][k], trasa, trasatemp);
   traverse(tab, w+1, k, mink, suma+tab[w][k], trasa, trasatemp);
   if(k+1<8)
     traverse(tab, w+1, k+1, mink, suma+tab[w][k], trasa, trasatemp);
   trasatemp[w][k]=false;
+  }
   return mink;
 }
 
