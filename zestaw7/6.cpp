@@ -6,12 +6,9 @@ const int N=6;
 
 bool czypierwsza(int tab[], int start, int koniec)
 {
-  int suma=0, potega=0, licznik=0;
-  for(int i=koniec; i>=start; i--)
-  {
-    suma+=tab[i]*pow(2, potega);
-    potega++;
-  }
+  int suma=0, licznik=0;
+  for(int i=start; i<=koniec; i++)
+    suma=suma*2+tab[i];
   if(suma==0 || suma==1)
     return false;
   for(int i=2; i*i<=suma; i++)
@@ -44,7 +41,7 @@ bool tnij(int tab[], int start)
 }
 int main()
 {
-	int tab[N] = {1, 1, 0, 1, 0, 0};
-	cout << tnij(tab, 0);
-	return 0;
+  int tab[N] = {1, 1, 1, 0, 1, 1};
+  cout << tnij(tab, 0);
+  return 0;
 }

@@ -11,7 +11,7 @@ bool zbanowany(bool kol[], bool skos1[], bool skos2[], int y, int x)
     return false;
 }
 
-void nastepny(bool kol[], bool skos1[], bool skos2[], int y, int x, bool ust[][N], bool &udane)
+bool nastepny(bool kol[], bool skos1[], bool skos2[], int y, int x, bool ust[][N])
 {
   if(!zbanowany(kol, skos1, skos2, y, x))
   {
@@ -20,30 +20,22 @@ void nastepny(bool kol[], bool skos1[], bool skos2[], int y, int x, bool ust[][N
     {
       for(int i=2; i<N; i++)
       {
-        if(x-i>=0 && !udane)
-          nastepny(kol, skos1, skos2, y+1, x-i, ust, udane);
-        if(x+i<N && !udane)
-          nastepny(kol, skos1, skos2, y+1, x+i, ust, udane);
-        if(udane)
-          return;
+        if(x-i>=0)
+          if(nastepny(kol, skos1, skos2, y+1, x-i, ust))
+            return true;
+        if(x+i<N)
+          if(nastepny(kol, skos1, skos2, y+1, x+i, ust))
+            return true;
       }
     }
     else
-    {
-      udane=true;
-      return;
-    }
+      return true;
     kol[x]=skos1[(2*N-1)/2+y-x]=skos2[x+y]=ust[y][x]=false;
   }
 }
 
-void wrap(bool kol[], bool skos1[], bool skos2[], bool ust[][N])
+void wypisz(bool ust[][N])
 {
-  bool udane=false;
-  for(int i=0; i<8 && !udane; i++)
-  {
-    nastepny(kol, skos1, skos2, 0, i, ust, udane);
-  }
   for(int i=0; i<N; i++)
   {
     for(int j=0; j<N; j++)
@@ -52,6 +44,18 @@ void wrap(bool kol[], bool skos1[], bool skos2[], bool ust[][N])
       cout << ust[i][j];
     }
     cout << endl;
+  }
+}
+
+void wrap(bool kol[], bool skos1[], bool skos2[], bool ust[][N])
+{
+  for(int i=0; i<8; i++)
+  {
+    if(nastepny(kol, skos1, skos2, 0, i, ust))
+    {
+      wypisz(ust);
+      break;
+    }
   }
 }
 

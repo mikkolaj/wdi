@@ -19,44 +19,44 @@ int traverse(int tab[][N], int w, int k, int &mink, int suma, bool trasa[][N], b
     }
     trasatemp[w][k]=false;
   }
-  if(w<7)
+  if(w<N-1)
   {
-  if(k-1>=0)
-    traverse(tab, w+1, k-1, mink, suma+tab[w][k], trasa, trasatemp);
-  traverse(tab, w+1, k, mink, suma+tab[w][k], trasa, trasatemp);
-  if(k+1<8)
-    traverse(tab, w+1, k+1, mink, suma+tab[w][k], trasa, trasatemp);
-  trasatemp[w][k]=false;
+    if(k-1>=0)
+      traverse(tab, w+1, k-1, mink, suma+tab[w][k], trasa, trasatemp);
+    traverse(tab, w+1, k, mink, suma+tab[w][k], trasa, trasatemp);
+    if(k+1<8)
+      traverse(tab, w+1, k+1, mink, suma+tab[w][k], trasa, trasatemp);
+    trasatemp[w][k]=false;
   }
   return mink;
 }
 
 int main()
 {
-	int tab[N][N]={};
-	int a;
-	ifstream dane("dane.txt");
-	for(int i=7; i>=0; i--)
-	  for(int j=0; j<8; j++)
-	   dane >> tab[i][j];
-	for(int i=7; i>=0; i--)
-	{
-	  for(int j=0; j<8; j++)
-	  {
+  int tab[N][N]={};
+  int a;
+  ifstream dane("dane.txt");
+  for(int i=7; i>=0; i--)
+    for(int j=0; j<8; j++)
+      dane >> tab[i][j];
+  for(int i=7; i>=0; i--)
+  {
+    for(int j=0; j<8; j++)
+    {
       cout.width(2);
       cout << tab[i][j]; 
     }
     cout << endl;
   }
-  
+
   int suma=0;
-	int mink = 10000000;
-	bool trasa[N][N]={};
-	bool trasatemp[N][N]={};
-	cout << endl << traverse(tab, 0, 5, mink, suma, trasa, trasatemp) << endl << endl;
-	
-	for(int i=7; i>=0; i--)
-	{
+  int mink = 10000000;
+  bool trasa[N][N]={};
+  bool trasatemp[N][N]={};
+  cout << endl << traverse(tab, 0, 5, mink, suma, trasa, trasatemp) << endl << endl;
+
+  for(int i=7; i>=0; i--)
+  {
     for(int j=0; j<8; j++)
     {
       cout.width(2);
@@ -64,5 +64,5 @@ int main()
     }
     cout << endl;
   }
-	return 0;
+  return 0;
 }

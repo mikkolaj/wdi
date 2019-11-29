@@ -44,8 +44,6 @@ void nastepny(bool kol[], bool skos1[], bool skos2[], int y, int x, bool ust[][N
     {
       zlicz++;
       wypisz(ust);
-      kol[x]=skos1[(2*N-1)/2+y-x]=skos2[x+y]=ust[y][x]=false;
-      return;
     }
     kol[x]=skos1[(2*N-1)/2+y-x]=skos2[x+y]=ust[y][x]=false;
   }
