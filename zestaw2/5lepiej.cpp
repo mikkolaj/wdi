@@ -19,7 +19,7 @@ int main()
       ic/=2;
       s5--;
     }
-    wynik=(wynik*ic)%1000000;
+    wynik=(wynik*ic)%10;
   }
   cout << "Ostatnia cyfra to: " << wynik << endl;
 }
