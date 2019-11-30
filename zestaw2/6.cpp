@@ -8,29 +8,26 @@ int power(int a, int b){
   return c;
 }
 int main(){
-  int n, xi, xn, s=0, a, j;// n- wprowadzana liczba, xi, xn- zmienne pomocnicze, s-ilosc liczb podzielnych przez 7,
-  cin>>n;
-  for (int i=1; i<power(2, (int)log10(n)+1); i++){
-    xi=i;
-    xn=n;
-    a=0; //a- liczba zlozona z cyfr liczby n (kombincaje)
-    j=0; //j - ilosc jej cyfr
-    //cout << i << endl << endl;
-    while (xi>0){
-      //cout << "Poczatek: xi " << xi << " xn " << xn << " a " << a << " j " << j << endl;
-      if (xi%2==1){
-        a+=(xn%10)*power(10, j);
-        j++;
+  int n, ic, nc, sum=0, nowa, pot;// n- wprowadzana liczba, ic, nc - kopie, sum-ilosc liczb podzielnych przez 7,
+  cin >> n;
+  for (int i=1; i<power(2, int(log10(n))+1); i++){
+    ic=i;
+    nc=n;
+    nowa=0; //a- liczba zlozona z cyfr liczby n (kombincaje)
+    pot=0; //j - ilosc jej cyfr
+    while (ic>0){
+      if (ic%2==1){
+        nowa+=(nc%10)*power(10, pot);
+        pot++;
       }
-      xn/=10;
-      xi/=2;
-      //cout << "Koniec:   xi " << xi << " xn " << xn << " a " << a << " j " << j << endl;
+      nc/=10;
+      ic/=2;
     }
-    if (a%7==0){
-      s++;
+    if (nowa%7==0){
+      sum++;
       //cout << endl <<a;
     }
   }
-  cout << s;
+  cout << sum;
   return 0;
 }

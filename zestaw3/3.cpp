@@ -8,24 +8,24 @@ int main()
   int n;
   cout << "Do jakiej wartosci szukac pierwszych?: ";
   cin >> n;
-  vector<int> tab;
+  vector<bool> tab;
   tab.resize(n);
   for(int i=2; i<=sqrt(n); i++)
   {
-    if(tab[i]==0)
+    if(!tab[i])
     {
       int ic=i;
       ic+=i;
       while(ic<=n)
       {
-        tab[ic]++;
+        tab[ic]=true;
         ic+=i;
       }
     }
   }
   cout << "Pierwsze: ";
   for(int i=2; i<tab.size(); i++)
-    if(tab[i]==0)
+    if(!tab[i])
       cout << i << endl;
   return 0;
 }

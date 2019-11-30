@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-  const int max = 9;
+  const int max = 5;
   int tab[max][max]={};
   int liczba=0, x=0, y=0, od=0;
   for(int i=0; i<=max/2; i++)

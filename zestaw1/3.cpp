@@ -9,7 +9,7 @@ int main()
 	int sum;
 	cin >> sum;
 	int akt=0;
-	while(fib1>=fib2 && akt>=0)
+	while(1)
 	{
 		if(akt==sum)
 		{
@@ -28,6 +28,9 @@ int main()
       fib2+=prev2;
 		  prev2=fib2-prev2;
 		}
+		if(fib1==fib2 && fib1!=1)
+      break;
+		cout << fib1 << " " << fib2 << endl;
   }
 	cout << "Nie jest";
 	return 0;
