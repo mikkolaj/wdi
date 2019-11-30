@@ -11,6 +11,9 @@ int main()
 		n-=k;
 		k+=2;
 	}	
-	cout << (k-1)/2;
+	if(n==0)
+    cout << (k-1)/2;
+  else
+    cout << (k-3)/2;
 	return 0;
 }

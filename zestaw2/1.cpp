@@ -7,32 +7,26 @@ int main()
   int fib1=1, prev1=0, num;
   int fib2=1, prev2=0;
   cin >> num;
+  if(num==0 || num==1)
+  {
+    cout << "tak" << endl;
+    return 0;
+  }
   while(fib1<=num)
   {
-    if(fib1*fib2==num)
+    while(fib2<fib1 && fib1*fib2)
     {
-      cout << "tak" << endl;
-      return 0;
-    }
-    while(fib2<fib1)
-    {
-      cout << "debil" << endl;
-      int temp2;
-      temp2 = prev2;
-      prev2=fib2;
-      fib2+=temp2;
-      cout << fib1 << "    " << fib2 << endl;
       if(fib1*fib2==num)
       {
         cout << "tak" << endl;
         return 0;
       }
-
+      cout << "debil" << endl;
+      fib2+=prev2;
+      prev2=fib2-prev2;
     }
-    int temp1;
-    temp1 = prev1;
-    prev1 = fib1;
-    fib1+= temp1;
+    fib1+=prev1;
+    prev1=fib1-prev1;
     fib2=1;
     prev2=0;
   }

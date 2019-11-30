@@ -14,11 +14,8 @@ int main()
 			right = mid;
 		else
 			left = mid;
-		//cout << "mid " << mid << " left " << left << " right " << right << endl;
 	}
-	
-	cout << mid<< endl;
-	
-	//cout << pow(4.8315, 4.8315);
+	cout << mid << endl;
 	return 0;
 }
+

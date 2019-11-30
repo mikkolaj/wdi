@@ -14,13 +14,13 @@ int main()
 			frac[j+1]+=(frac[j]%i)*10;
 			frac[j]/=i;
 		}
-		frac[1100-1]%=10;
-		for(int j=0; j<1100; j++)
-			sum[j]+=frac[j];
-		for(int j=1100-1; j>=1; j--)
+		frac[1100-1]%=i;
+		int carry=0;
+		for(int j=1100-1; j>=0; j--)
 		{
-			sum[j-1]+=sum[j]/10;
-			sum[j]%=10;
+		  int temp=sum[j]+frac[j]+carry;
+			sum[j]=(temp)%10;
+			carry=temp/10;
 		}
 			
 	}

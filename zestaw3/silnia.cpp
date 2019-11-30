@@ -18,7 +18,6 @@ int main()
 		{
 			for(int j=3000-1; j>=0; j--)
 			{
-
 				part[j]= sil[j]*(ic%10);
 			}
 			for(int j=3000-1; j>=1; j--)
