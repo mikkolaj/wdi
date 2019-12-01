@@ -21,22 +21,25 @@ int main()
       y++;
       liczba++;
     }
-    while(x>=od)
+    while(x>od)
     {
       tab[y][x]=liczba;
       x--;
       liczba++;
     }
-    x++;
-    y--;
-    od++;
     while(y>od)
     {
       tab[y][x]=liczba;
       y--;
       liczba++;
     }
+    y++;
+    od++;
   }
+  
+  if(max%2!=0)
+    tab[max/2][max/2]=liczba;
+    
   for(int i=max-1; i>=0; i--)
   {
     for(int j=0; j<max; j++)

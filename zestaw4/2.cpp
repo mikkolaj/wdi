@@ -18,23 +18,24 @@ bool niep(int n)
 int main()
 {
   const int max = 2;
-  int tab[max][max];
-  bool nie = false;
+  int tab[max][max]={};
+  tab[0][0]=37957;
+  tab[1][1]=37;
+  int licznik=0;
   for(int i=max-1; i>=0; i--)
   {
     for(int j=0; j<max; j++)
     {
       if(niep(tab[i][j]))
       {
-        cout << "Tak" << endl;
-        nie=1;
+        licznik++;
         break;
       }
     }
-    if(!nie)
-      cout << "Nie" << endl;
-    else
-      nie = false;
   }
+  if(licznik==max)
+    cout << "Tak" << endl;
+  else
+    cout << "Nie" << endl;
   return 0;
 }

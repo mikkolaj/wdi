@@ -7,7 +7,7 @@ int main()
 	int k;
 	cin >> k;
 	double pol = 0;
-	const float prec = 0.01;
+	const float prec = 0.1;
 	for(float i=1; i<k; i+=prec)
 	{
 		cout << i << endl;

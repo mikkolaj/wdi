@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-	long sil[500]={0};
-	long dzielnik = 1000000;
+	long sil[3000]={0};
+	long dzielnik = 10;
 	long carry=0;
 	int n;
 	cin >> n;

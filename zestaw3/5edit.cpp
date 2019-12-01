@@ -14,7 +14,7 @@ int main()
 			frac[j+1]+=(frac[j]%i)*10;
 			frac[j]/=i;
 		}
-		frac[1100-1]%=i;
+		frac[1100-1]/=i;
 		int carry=0;
 		for(int j=1100-1; j>=0; j--)
 		{
