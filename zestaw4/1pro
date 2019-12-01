@@ -1,0 +1,54 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+int main(){
+
+	const int MAX = 5;
+	
+	int tab[MAX][MAX] = {};
+	int liczba = 1;
+	int wsk = 0; //wskaznik okrazen
+	
+	while(wsk <= MAX/2){
+		int i = wsk;
+		int j = wsk;
+		while(j < MAX-1-wsk){
+			tab[i][j] = liczba;
+			liczba++;
+			j++;
+		}
+		while(i < MAX-1-wsk){
+			tab[i][j] = liczba;
+			liczba++;
+			i++;
+		}
+		while(j > 0+wsk){
+			tab[i][j] = liczba;
+			liczba++;
+			j--;
+		}
+		while(i > 0+wsk){
+			tab[i][j] = liczba;
+			liczba++;
+			i--;
+		}
+		wsk++;
+	}
+	if(MAX%2 != 0){
+		tab[MAX/2][MAX/2] = liczba;
+	}
+	
+	for(int i = 0 ; i < MAX ; i++){
+		for(int j = 0 ; j < MAX ; j++){
+			cout.width(5);
+			cout << tab[i][j];
+		}
+		cout << endl;
+	}
+
+
+	return 0;
+}
