@@ -2,7 +2,7 @@
 #include <cmath>
 
 using namespace std;
-const int N = 10;
+const int N = 5;
 
 
 int maxPary(int t1[], int t2[]){
@@ -10,21 +10,22 @@ int maxPary(int t1[], int t2[]){
 	int k = pow(2, N);
 	
 	for(int i = 1; i < k ; i++){
-		for(int j = 1 ; j < k ; j++){
-			int komb1 = i;
-			int komb2 = j;
-			int suma1 = 0;
-			int suma2 = 0;
-			int a = 0;
-			int liczPary1 = 0, liczPary2 = 0;
-			while(komb1 != 0){
-				if(komb1%2 == 1){
-					suma1 += t1[a];
-					liczPary1++;
-				}
-				komb1 /= 2;
-				a++;
+		int komb1 = i;
+		int suma1 = 0;
+		int liczPary1 = 0;
+		int a = 0;
+		while(komb1 != 0){
+			if(komb1%2 == 1){
+				suma1 += t1[a];
+				liczPary1++;
 			}
+			komb1 /= 2;
+			a++;
+		}
+		for(int j = 1 ; j < k ; j++){
+			int komb2 = j;
+			int suma2 = 0;
+			int liczPary2 = 0;
 			int b = 0;
 			while(komb2 != 0){
 				if(komb2%2 == 1){
@@ -46,9 +47,10 @@ int maxPary(int t1[], int t2[]){
 }
 
 int main(){
-	int t1[5] = {1,4,40,7,700};
-	int t2[5] = {3,2,2,58,500};
+	int t1[N] = {1,4,40,7,700};
+	int t2[N] = {300,2,2,8,500};
 	cout << maxPary(t1, t2);
 
 	return 0;
 }
+
