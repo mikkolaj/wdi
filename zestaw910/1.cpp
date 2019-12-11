@@ -34,12 +34,6 @@ void print(node *start)
 
 void dodaj(node *&start, int el)
 {
-  if(start==NULL)
-  {
-    start=new node;
-    start->w=el;
-    return;
-  }
   if(!nalezy(start, el))
   {
     node *r=new node;
@@ -61,13 +55,15 @@ void remove(node *&start, int szuk)
   }
   if(r==NULL)
     return;
-  if(r->next==NULL)
-    return;
-  else
+  if(prev!=NULL)
   {
     prev->next=r->next;
-    delete r;
   }
+  else
+  {
+    start=start->next;
+  }
+  delete r;
 }
 
 int main()
@@ -80,7 +76,7 @@ int main()
   for(int i=0; i<10; i++)
     dodaj(f, i);
   print(f);
-  remove(f, 7);
+  remove(f, 0);
   print(f);
 	return 0;
 }
