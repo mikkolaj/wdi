@@ -40,33 +40,15 @@ void dodaj(node *&start, int el)
 
 node *scal(node *start1, node *start2)
 {
-  node *wynpr=new node;
-  node *wyn=NULL;
-  if(start1!=NULL && start2!=NULL)
+  if(start1==NULL || start2==NULL)
   {
-    node *temp=NULL;
-    if(start1->w<start2->w)
-    {
-      wynpr->w=start1->w;
-      temp=start1;
-      start1=start1->next;
-    }
-    else
-    {
-      wynpr->w=start2->w;
-      temp=start2;
-      start2=start2->next;
-    }
-    delete temp;
-  }
-  else
-  {
-    delete wynpr;
     if(start1!=NULL)
       return start1;
     else
       return start2;
   }
+  node *wynpr=new node;
+  node *wyn=NULL;
   wyn=wynpr;
   while(start1!=NULL || start2!=NULL)
   {
@@ -94,6 +76,7 @@ node *scal(node *start1, node *start2)
       if(start1==NULL)
         start1=start2;
       wyn->next=start1;
+      wynpr=wynpr->next;
       return wynpr;
     }
     wyn=wyn->next;
