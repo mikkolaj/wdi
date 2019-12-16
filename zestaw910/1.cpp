@@ -73,7 +73,7 @@ int main()
   //f->next=new node;
   //f->next->w=7;
   //print(f);
-  for(int i=0; i<10; i++)
+  for(int i=0; i<1; i++)
     dodaj(f, i);
   print(f);
   remove(f, 0);
