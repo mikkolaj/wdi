@@ -53,11 +53,12 @@ int value(node *tab, int n)
 void set(node *&wez, int n, int val)
 {
   int i=0;
+  node *prev=NULL;
   node *tab=wez;
   node *nowy=new node;
   nowy->w=val;
   nowy->ile=1;
-  /*if(n==0)  // uogólniæ ten warunek do pocz¹tku ka¿dego fragmentu
+  if(n==0)  // uogólniæ ten warunek do pocz¹tku ka¿dego fragmentu
   {
     if(tab->w==val)
     {
@@ -65,9 +66,18 @@ void set(node *&wez, int n, int val)
     }
     if(tab->ile==1)
     {
-      nowy->next=tab->next;
-      wez=nowy;
-      delete tab;
+      if(tab->next->w!=val)
+      {
+        tab->w=val;
+      }
+      else
+      {
+        tab->next->ile++;
+        nowy=tab->next;
+        delete tab;
+        wez=nowy;
+      }
+      delete nowy;
       return;
     }
     else
@@ -77,7 +87,7 @@ void set(node *&wez, int n, int val)
       wez=nowy;
     }
     return;
-  }*/
+  }
   while(tab!=NULL)
   {
     int ic=0;
@@ -85,12 +95,48 @@ void set(node *&wez, int n, int val)
     {
       if(i==n)
       {
+        if(ic==0)
+        {
+          if(tab->w!=val)
+          {
+          if(tab->ile==1)
+          {
+            prev->next=nowy;
+            nowy->next=tab->next;
+            delete tab;
+          }
+          else
+          {
+            tab->ile--;
+            prev->next=nowy;
+            nowy->next=tab;
+          }
+          }
+          return;
+        }
         if(ic==n)
         {
+          if(tab->w!=val)
+          {
+          if(tab->ile!=1)
+          {
           tab->ile--;
           tab->next=nowy;
+          }
+          else
+          {
+            tab->w=val;
+            delete nowy;
+          }
+          }
+          return;
         }
-        else
+        if(ic==tab->ile-1)
+        {
+          
+        }
+
+
         {
           if(n==7)
             cout << tab->ile << endl;
@@ -113,6 +159,7 @@ void set(node *&wez, int n, int val)
       i++;
       ic++;
     }
+    prev=tab;
     tab=tab->next;
   }
 }

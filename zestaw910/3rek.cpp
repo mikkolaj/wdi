@@ -38,47 +38,36 @@ void dodaj(node *&start, int el)
   r->next->w=el;
 }
 
-node *scal(node *start1, node *start2)
+void scal(node *&wyn, node *start1, node *start2)
 {
   if(start1==NULL)
-    return start2;
-  if(start2==NULL)
-    return start1;
-  node *wynpr=new node;
-  node *wyn=wynpr;
-  while(start1!=NULL || start2!=NULL)
   {
-    if(start1!=NULL && start2!=NULL)
-    {
-      node *temp=new node;
-      if(start1->w<start2->w)
-      {
-        temp->w=start1->w;
-        wyn->next=temp;
-        temp=start1;
-        start1=start1->next;
-      }
-      else
-      {
-        temp->w=start2->w;
-        wyn->next=temp;
-        temp=start2;
-        start2=start2->next;
-      }
-      delete temp;
-    }
-    else
-    {
-      node *temp;
-      if(start1==NULL)
-        start1=start2;
-      wyn->next=start1;
-      temp=wynpr;
-      wynpr=wynpr->next;
-      delete temp;
-      return wynpr;
-    }
-    wyn=wyn->next;
+    wyn->next=start2;
+    return;
+  }
+  if(start2==NULL)
+  {
+    wyn->next=start1;
+    return;
+  }
+  node *temp=new node;
+  if(start1->w<start2->w)
+  {
+    temp->w=start1->w;
+    wyn->next=temp;
+    temp=start1;
+    start1=start1->next;
+    delete temp;
+    scal(wyn->next, start1, start2);
+  }
+  else
+  {
+    temp->w=start2->w;
+    wyn->next=temp;
+    temp=start2;
+    start2=start2->next;
+    delete temp;
+    scal(wyn->next, start1, start2);
   }
 }
 
@@ -96,7 +85,11 @@ int main()
   {
     dodaj(f2, tab2[i]);
   }
-  node *wynik=scal(f1, f2);
-  print(wynik);
-	return 0;
+  node *wyn=new node;
+  scal(wyn, f1, f2);
+  node *temp=wyn;
+  wyn=wyn->next;
+  delete temp;
+  print(wyn);
+  return 0;
 }
