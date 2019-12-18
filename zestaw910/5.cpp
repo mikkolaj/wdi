@@ -63,32 +63,24 @@ void rozdziel(node *&start, node *tab[])
 
 node *scalliste(node *tab[])
 {
-  int i=0;
-  node *wyn=NULL;
-  node *last=NULL;
-  while(i<10)
+  node *odp=new node;
+  node *wyn=odp;
+  for(int i=0; i<10; i++)
   {
-    while(tab[i]==NULL)
-      i++;           
-    if(wyn==NULL)
+    while(tab[i]!=NULL)
     {
-      wyn=tab[i];
-      last=tab[i];
+      wyn->next=tab[i];
+      tab[i]=tab[i]->next;
+      wyn=wyn->next;
     }
-    else
-    {
-      node *r=last;
-      while(r->next!=NULL)
-        r=r->next;
-      r->next=tab[i];
-      last=r->next;
-    }
-    i++;
   }
-  return wyn;
+  wyn=odp;
+  odp=odp->next;
+  delete wyn;
+  return odp;
 }
 
-const int N=100;
+const int N=10;
 
 int main()
 {
