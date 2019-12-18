@@ -50,16 +50,13 @@ node *scal(node *start1, node *start2)
   {
     if(start1!=NULL && start2!=NULL)
     {
-      node *temp;
       if(start1->w<start2->w)
       {
-        temp=start1->next;
         wyn->next=start1;
         start1=start1->next;
       }
       else
       {
-        temp=start2->next;
         wyn->next=start2;
         start2=start2->next;
       }
