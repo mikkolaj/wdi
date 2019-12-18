@@ -50,23 +50,16 @@ void scal(node *&wyn, node *start1, node *start2)
     wyn->next=start1;
     return;
   }
-  node *temp=new node;
   if(start1->w<start2->w)
   {
-    temp->w=start1->w;
-    wyn->next=temp;
-    temp=start1;
+    wyn->next=start1;
     start1=start1->next;
-    delete temp;
     scal(wyn->next, start1, start2);
   }
   else
   {
-    temp->w=start2->w;
-    wyn->next=temp;
-    temp=start2;
+    wyn->next=start2;
     start2=start2->next;
-    delete temp;
     scal(wyn->next, start1, start2);
   }
 }

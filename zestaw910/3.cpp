@@ -44,28 +44,22 @@ node *scal(node *start1, node *start2)
     return start2;
   if(start2==NULL)
     return start1;
-  node *wynpr=new node;
-  node *wyn=wynpr;
+  node *wyn=new node;
+  node *wynpr=wyn;
   while(start1!=NULL || start2!=NULL)
   {
     if(start1!=NULL && start2!=NULL)
     {
-      node *temp=new node;
       if(start1->w<start2->w)
       {
-        temp->w=start1->w;
-        wyn->next=temp;
-        temp=start1;
+        wyn->next=start1;
         start1=start1->next;
       }
       else
       {
-        temp->w=start2->w;
-        wyn->next=temp;
-        temp=start2;
+        wyn->next=start2;
         start2=start2->next;
       }
-      delete temp;
     }
     else
     {
