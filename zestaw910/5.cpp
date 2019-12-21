@@ -40,25 +40,16 @@ void dodaj(node *&start, int el)
   r->next->w=el;
 }
 
-void dodajnode(node *&start, node *&nowy)
-{
-  if(start==NULL)
-  {
-    start=nowy;
-    nowy=nowy->next;
-    start->next=NULL;
-    return;
-  }
-  node *r=nowy;
-  nowy=nowy->next;
-  r->next=start;
-  start=r;
-}
-
 void rozdziel(node *&start, node *tab[])
 {
   while(start!=NULL)
-    dodajnode(tab[start->w%10], start);
+  {
+    int val=start->w%10;
+    node *r=start;
+    start=start->next;
+    r->next=tab[val];
+    tab[val]=r;
+  }
 }
 
 node *scalliste(node *tab[])

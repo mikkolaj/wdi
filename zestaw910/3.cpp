@@ -46,34 +46,28 @@ node *scal(node *start1, node *start2)
     return start1;
   node *wyn=new node;
   node *wynpr=wyn;
-  while(start1!=NULL || start2!=NULL)
+  while(start1!=NULL && start2!=NULL)
   {
-    if(start1!=NULL && start2!=NULL)
+    if(start1->w<start2->w)
     {
-      if(start1->w<start2->w)
-      {
-        wyn->next=start1;
-        start1=start1->next;
-      }
-      else
-      {
-        wyn->next=start2;
-        start2=start2->next;
-      }
+      wyn->next=start1;
+      start1=start1->next;
     }
     else
     {
-      node *temp;
-      if(start1==NULL)
-        start1=start2;
-      wyn->next=start1;
-      temp=wynpr;
-      wynpr=wynpr->next;
-      delete temp;
-      return wynpr;
+      wyn->next=start2;
+      start2=start2->next;
     }
     wyn=wyn->next;
   }
+  node *temp;
+  if(start1==NULL)
+    start1=start2;
+  wyn->next=start1;
+  temp=wynpr;
+  wynpr=wynpr->next;
+  delete temp;
+  return wynpr;
 }
 
 int main()
@@ -92,5 +86,5 @@ int main()
   }
   node *wynik=scal(f1, f2);
   print(wynik);
-	return 0;
+  return 0;
 }

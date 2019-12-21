@@ -40,8 +40,6 @@ void dodaj(node *&start, int el)
 
 void odwroc(node *&start)
 {
-  if(start==NULL)
-    return;
   node *tyl=NULL;
   node *pom;
   while(start!=NULL)
